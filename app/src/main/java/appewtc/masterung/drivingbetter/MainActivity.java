@@ -19,10 +19,10 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                startActivity(new Intent(MainActivity.this, LoginActivity.class));
             }
-        }, 7000);
+        }, 4000);
 
         //Sound Effect
-        MediaPlayer introMediaPlayer = MediaPlayer.create(getBaseContext(), R.raw.intro_start_horse);
+        MediaPlayer introMediaPlayer = MediaPlayer.create(getBaseContext(), R.raw.soundeffect2);
         introMediaPlayer.start();
 
     }   // onCreate
