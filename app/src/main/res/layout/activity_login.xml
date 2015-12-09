@@ -8,7 +8,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="appewtc.masterung.drivingbetter.LoginActivity"
-    android:background="@drawable/bg15">
+    android:background="@drawable/bg480">
 
     <LinearLayout
         android:orientation="vertical"
@@ -23,20 +23,65 @@
             android:textSize="30sp"
             android:textStyle="bold"
             android:layout_gravity="center_horizontal"
-            android:textColor="#ede849" />
+            android:textColor="@color/text" />
 
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:id="@+id/imageView2"
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/logo300" />
+            android:background="#82ffffff"
+            android:padding="30dp"
+            android:layout_marginTop="50dp">
 
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:id="@+id/imageView3"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/logo300" />
+            <EditText
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText"
+                android:layout_gravity="center_horizontal"
+                android:hint="ID-Car"
+                android:inputType="text"
+                android:textColor="@color/text" />
+
+            <EditText
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText2"
+                android:layout_gravity="center_horizontal"
+                android:hint="Password :"
+                android:inputType="textPassword"
+                android:textColor="@color/text" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Login"
+                    android:id="@+id/button"
+                    android:layout_weight="1"
+                    android:textColor="@color/text" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="clear"
+                    android:id="@+id/button2"
+                    android:layout_weight="1"
+                    android:textColor="@color/text" />
+            </LinearLayout>
+        </LinearLayout>
+
     </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="sing up"
+        android:id="@+id/button3"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/text" />
 </RelativeLayout>
