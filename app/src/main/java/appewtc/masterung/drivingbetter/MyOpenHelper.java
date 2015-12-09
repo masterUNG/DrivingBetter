@@ -27,6 +27,23 @@ public class MyOpenHelper extends SQLiteOpenHelper{
             "Radiator text, " +
             "Fullservice text);";
 
+    public static final String CREATE_EMER = "create table emerTABLE (_id integer primary key, " +
+            "ImgService text, " +
+            "TelService text, " +
+            "ImgInsure text, " +
+            "TelInsure text);";
+
+    public static final String CREATE_FIX = "create table fixTABLE (_id integer primary key, " +
+            "Topig text, " +
+            "ImageFix text, " +
+            "DescripFix text);";
+
+    public static final String CREATE_LOGIN = "create table loginTABLE (_id integer primary key, " +
+            "ID_car_login text, " +
+            "TimeDate text, " +
+            "Lat text, " +
+            "Lng text);";
+
     public MyOpenHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }   // Constructor
@@ -34,6 +51,9 @@ public class MyOpenHelper extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_CAR_TABLE);
+        db.execSQL(CREATE_EMER);
+        db.execSQL(CREATE_FIX);
+        db.execSQL(CREATE_LOGIN);
     }
 
     @Override
