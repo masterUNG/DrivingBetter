@@ -18,6 +18,13 @@ public class LoginActivity extends AppCompatActivity {
         objManageTABLE = new ManageTABLE(this);
 
         //Test Add Value
+        testAddValue();
+
+    }   // onCreate
+
+    private void testAddValue() {
+
+        //Test Add Value to carTABLE
         objManageTABLE.addValueCarTABLE("" +
                         "IDcar",
                 "Pass",
@@ -33,6 +40,9 @@ public class LoginActivity extends AppCompatActivity {
                 "Radia",
                 "FullService");
 
-    }   // onCreate
+        //Test Add Value to emerTABLE
+        objManageTABLE.addValueEmerTABLE("ImageSer", "TelSer", "ImageInsure", "TelInsure");
+
+    }   // testAddValue
 
 }   // Main Class

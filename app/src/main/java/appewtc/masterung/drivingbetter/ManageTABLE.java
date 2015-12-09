@@ -56,6 +56,21 @@ public class ManageTABLE {
 
     }   // Constructor
 
+    public long addValueEmerTABLE(String strImageSer,
+                                  String strTelSer,
+                                  String strImageInsure,
+                                  String strTelInsure) {
+
+        ContentValues objContentValues = new ContentValues();
+
+        objContentValues.put(COLUMN_ImgService, strImageSer);
+        objContentValues.put(COLUMN_TelService, strTelSer);
+        objContentValues.put(COLUMN_ImgInsure, strImageInsure);
+        objContentValues.put(COLUMN_TelInsure, strTelInsure);
+
+        return writeSqLiteDatabase.insert(TABLE_EMER, null, objContentValues);
+    }
+
     public long addValueCarTABLE(String strIDcar,
                                  String strPass,
                                  String strMileCar,
