@@ -46,6 +46,9 @@ public class LoginActivity extends AppCompatActivity {
         //Test Add Value to fixTABLE
         objManageTABLE.addValueFixTABLE("Topic", "ImageFix", "DescripFix");
 
+        //Test Add Value to loginTABLE
+        objManageTABLE.addValueLoginTABLE("ID", "TimeDate", "Lat", "Lng");
+
     }   // testAddValue
 
 }   // Main Class

@@ -56,6 +56,21 @@ public class ManageTABLE {
 
     }   // Constructor
 
+    public long addValueLoginTABLE(String strID,
+                                   String strTimeDate,
+                                   String strLat,
+                                   String strLng) {
+
+        ContentValues objContentValues = new ContentValues();
+
+        objContentValues.put(COLUMN_ID_car_login, strID);
+        objContentValues.put(COLUMN_TimeDate, strTimeDate);
+        objContentValues.put(COLUMN_Lat, strLat);
+        objContentValues.put(COLUMN_Lng, strLng);
+
+        return writeSqLiteDatabase.insert(TABLE_LOGIN, null, objContentValues);
+    }
+
     public long addValueFixTABLE(String strTopic,
                                  String strImageFix,
                                  String strDescripFix) {
