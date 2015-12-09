@@ -56,6 +56,21 @@ public class ManageTABLE {
 
     }   // Constructor
 
+    public long addValueFixTABLE(String strTopic,
+                                 String strImageFix,
+                                 String strDescripFix) {
+
+        ContentValues objContentValues = new ContentValues();
+
+        objContentValues.put(COLUMN_Topig, strTopic);
+        objContentValues.put(COLUMN_ImageFix, strImageFix);
+        objContentValues.put(COLUMN_DescripFix, strDescripFix);
+
+        return writeSqLiteDatabase.insert(TABLE_FIX, null, objContentValues);
+    }
+
+
+
     public long addValueEmerTABLE(String strImageSer,
                                   String strTelSer,
                                   String strImageInsure,

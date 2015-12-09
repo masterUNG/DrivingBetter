@@ -43,6 +43,9 @@ public class LoginActivity extends AppCompatActivity {
         //Test Add Value to emerTABLE
         objManageTABLE.addValueEmerTABLE("ImageSer", "TelSer", "ImageInsure", "TelInsure");
 
+        //Test Add Value to fixTABLE
+        objManageTABLE.addValueFixTABLE("Topic", "ImageFix", "DescripFix");
+
     }   // testAddValue
 
 }   // Main Class
