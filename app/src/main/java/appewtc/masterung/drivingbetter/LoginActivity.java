@@ -17,6 +17,21 @@ public class LoginActivity extends AppCompatActivity {
         //Create & Connected
         objManageTABLE = new ManageTABLE(this);
 
+        //Test Add Value
+        objManageTABLE.addValueCarTABLE("" +
+                        "IDcar",
+                "Pass",
+                "MileCar",
+                "Date",
+                "Mile",
+                "ACT",
+                "TAX",
+                "Insure",
+                "Batt",
+                "Tire",
+                "Engin",
+                "Radia",
+                "FullService");
 
     }   // onCreate
 

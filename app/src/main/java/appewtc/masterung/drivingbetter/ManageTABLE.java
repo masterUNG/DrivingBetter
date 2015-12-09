@@ -1,5 +1,6 @@
 package appewtc.masterung.drivingbetter;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -54,5 +55,41 @@ public class ManageTABLE {
         readSqLiteDatabase = objMyOpenHelper.getReadableDatabase();
 
     }   // Constructor
+
+    public long addValueCarTABLE(String strIDcar,
+                                 String strPass,
+                                 String strMileCar,
+                                 String strDate,
+                                 String strMile,
+                                 String strACT,
+                                 String strTAX,
+                                 String strInsure,
+                                 String strBatt,
+                                 String strTire,
+                                 String strEngin,
+                                 String strRadiator,
+                                 String strFullService) {
+
+        ContentValues objContentValues = new ContentValues();
+
+        objContentValues.put(COLUMN_Id_Car, strIDcar);
+        objContentValues.put(COLUMN_Password, strPass);
+        objContentValues.put(COLUMN_MileCar, strMileCar);
+        objContentValues.put(COLUMN_Date, strDate);
+        objContentValues.put(COLUMN_Mile, strMile);
+        objContentValues.put(COLUMN_ACT, strACT);
+        objContentValues.put(COLUMN_TAX, strTAX);
+        objContentValues.put(COLUMN_Insure, strInsure);
+        objContentValues.put(COLUMN_Batt, strBatt);
+        objContentValues.put(COLUMN_Tire, strTire);
+        objContentValues.put(COLUMN_Engine_oil, strEngin);
+        objContentValues.put(COLUMN_Radiator, strRadiator);
+        objContentValues.put(COLUMN_Fullservice, strFullService);
+
+        return writeSqLiteDatabase.insert(TABLE_CAR, null, objContentValues);
+    }
+
+
+
 
 }   // Main Class
