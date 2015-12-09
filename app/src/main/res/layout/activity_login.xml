@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="appewtc.masterung.drivingbetter.LoginActivity"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="swu.sun.yut.ob.drivingbetter.LoginActivity"
     android:background="@drawable/bg480">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <TextView
             android:layout_width="wrap_content"
@@ -27,11 +28,11 @@
 
         <LinearLayout
             android:orientation="vertical"
-            android:layout_width="250dp"
+            android:layout_width="313dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:background="#82ffffff"
-            android:padding="30dp"
+            android:background="#82d93b3b"
+            android:padding="50dp"
             android:layout_marginTop="50dp">
 
             <EditText
@@ -39,16 +40,17 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/editText"
                 android:layout_gravity="center_horizontal"
-                android:hint="ID-Car"
+                android:hint="IS-Car"
                 android:inputType="text"
-                android:textColor="@color/text" />
+                android:textColor="@color/text"
+                android:text="CarID" />
 
             <EditText
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/editText2"
                 android:layout_gravity="center_horizontal"
-                android:hint="Password :"
+                android:hint="Password"
                 android:inputType="textPassword"
                 android:textColor="@color/text" />
 
@@ -66,9 +68,9 @@
                     android:textColor="@color/text" />
 
                 <Button
-                    android:layout_width="wrap_content"
+                    android:layout_width="74dp"
                     android:layout_height="wrap_content"
-                    android:text="clear"
+                    android:text="Clear"
                     android:id="@+id/button2"
                     android:layout_weight="1"
                     android:textColor="@color/text" />
@@ -80,7 +82,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="sing up"
+        android:text="Sign Up"
         android:id="@+id/button3"
         android:layout_alignParentBottom="true"
         android:textColor="@color/text" />
