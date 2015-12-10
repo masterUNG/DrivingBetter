@@ -56,6 +56,18 @@ public class ManageTABLE {
 
     }   // Constructor
 
+    public String[] searchIDcard(String strIDcard) {
+
+        try {
+
+        } catch (Exception e) {
+            return null;
+        }
+
+        return new String[0];
+    }
+
+
     public long addValueLoginTABLE(String strID,
                                    String strTimeDate,
                                    String strLat,
