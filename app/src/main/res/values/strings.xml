@@ -11,6 +11,10 @@
     <string name="engine_oil">น้ำมันเครื่อง</string>
 
     <string name="head1">กรอกข้อมูลรถยนต์</string>
-
+    <string name="save">Save Data</string>
+    <string name="cardata">ข้อมูลรถยนต์</string>
+    <string name="fix">แนะนำการซ่อมบำรุง</string>
+    <string name="gps">GPS</string>
+    <string name="tel">ข้อมูลศูนย์บริการ</string>
 
 </resources>

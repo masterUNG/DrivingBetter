@@ -6,6 +6,7 @@
     <dimen name="logo">250dp</dimen>
     <dimen name="h1">35sp</dimen>
     <dimen name="h2">20sp</dimen>
+    <dimen name="icon">100dp</dimen>
 
 
 </resources>

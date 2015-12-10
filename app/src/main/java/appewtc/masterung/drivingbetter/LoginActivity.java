@@ -34,6 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         //Bind Widget
+        bindWidget();
 
         //Create & Connected
         objManageTABLE = new ManageTABLE(this);
@@ -49,12 +50,35 @@ public class LoginActivity extends AppCompatActivity {
 
     }   // onCreate
 
+    private void bindWidget() {
+        idCardEditText = (EditText) findViewById(R.id.editText);
+        passwordEditText = (EditText) findViewById(R.id.editText2);
+    }
+
     public void clickLogin(View view) {
 
-    }
+        idCardString = idCardEditText.getText().toString().trim();
+        passwordString = passwordEditText.getText().toString().trim();
+
+        //Check Space
+        if (idCardString.equals("") || passwordString.equals("") ) {
+
+            //Have Space
+            MyAlertDialog objMyAlertDialog = new MyAlertDialog();
+            objMyAlertDialog.errorDialog(LoginActivity.this, "มีช่องว่าง", "กรุณา กรอกทุกช่อง นะคะ");
+
+        } else {
+
+            //No Space
+
+        }
+
+    }   // clickLogin
 
     public void clickClear(View view) {
 
+        idCardEditText.setText("");
+        passwordEditText.setText("");
     }
 
 
