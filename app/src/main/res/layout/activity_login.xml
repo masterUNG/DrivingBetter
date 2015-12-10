@@ -81,6 +81,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="clickSignUp"
         android:text="Sign Up"
         android:id="@+id/button3"
         android:layout_alignParentBottom="true"
