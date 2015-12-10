@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -24,12 +25,15 @@ public class LoginActivity extends AppCompatActivity {
 
     //Explicit
     private ManageTABLE objManageTABLE;
-
+    private EditText idCardEditText, passwordEditText;
+    private String idCardString, passwordString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        //Bind Widget
 
         //Create & Connected
         objManageTABLE = new ManageTABLE(this);
