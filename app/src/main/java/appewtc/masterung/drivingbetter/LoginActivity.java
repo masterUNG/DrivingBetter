@@ -170,6 +170,7 @@ public class LoginActivity extends AppCompatActivity {
                                     strImageFix,
                                     strDescripFix);
 
+
                             break;
                         case 4: // loginTABLE
 
