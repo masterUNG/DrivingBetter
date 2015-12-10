@@ -24,7 +24,7 @@
             android:textSize="30sp"
             android:textStyle="bold"
             android:layout_gravity="center_horizontal"
-            android:textColor="@color/text" />
+            android:textColor="@color/text1" />
 
         <LinearLayout
             android:orientation="vertical"
@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/editText"
                 android:layout_gravity="center_horizontal"
-                android:hint="ID-Car"
+                android:hint="CarID"
                 android:inputType="text"
                 android:textColor="@color/text" />
 
@@ -62,17 +62,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Login"
+                    android:onClick="clickLogin"
                     android:id="@+id/button"
                     android:layout_weight="1"
-                    android:textColor="@color/text" />
+                    android:textColor="@color/text2" />
 
                 <Button
                     android:layout_width="74dp"
                     android:layout_height="wrap_content"
                     android:text="Clear"
+                    android:onClick="clickClear"
                     android:id="@+id/button2"
                     android:layout_weight="1"
-                    android:textColor="@color/text" />
+                    android:textColor="@color/text2" />
             </LinearLayout>
         </LinearLayout>
 
@@ -85,5 +87,5 @@
         android:text="Sign Up"
         android:id="@+id/button3"
         android:layout_alignParentBottom="true"
-        android:textColor="@color/text" />
+        android:textColor="@color/text2" />
 </RelativeLayout>

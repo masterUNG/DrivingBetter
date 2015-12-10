@@ -43,8 +43,16 @@ public class LoginActivity extends AppCompatActivity {
         //Synchronize mySQL to SQLite
         synchronizeMySQLtoSQLite();
 
-
     }   // onCreate
+
+    public void clickLogin(View view) {
+
+    }
+
+    public void clickClear(View view) {
+
+    }
+
 
     private void synchronizeMySQLtoSQLite() {
 
