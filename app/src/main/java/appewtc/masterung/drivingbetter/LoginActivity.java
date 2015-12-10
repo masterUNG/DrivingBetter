@@ -30,7 +30,12 @@ public class LoginActivity extends AppCompatActivity {
 
     private void deleteAllValue() {
 
-        SQLiteDatabase objSqLiteDatabase = o
+        SQLiteDatabase objSqLiteDatabase = openOrCreateDatabase("car.db", MODE_PRIVATE, null);
+        objSqLiteDatabase.delete("carTABLE", null, null);
+        objSqLiteDatabase.delete("emerTABLE", null, null);
+        objSqLiteDatabase.delete("fixTABLE", null, null);
+        objSqLiteDatabase.delete("loginTABLE", null, null);
+
 
     }
 
