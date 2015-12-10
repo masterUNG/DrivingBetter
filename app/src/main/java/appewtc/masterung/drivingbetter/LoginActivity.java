@@ -26,7 +26,18 @@ public class LoginActivity extends AppCompatActivity {
         //Delete Value in SQLite
         deleteAllValue();
 
+        //Synchronize mySQL to SQLite
+        synchronizeMySQLtoSQLite();
+
+
     }   // onCreate
+
+    private void synchronizeMySQLtoSQLite() {
+
+        //Setup New Polici
+
+
+    }   // synchronizeMySQLtoSQLite
 
     private void deleteAllValue() {
 
