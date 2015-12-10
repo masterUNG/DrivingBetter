@@ -1,6 +1,7 @@
 package appewtc.masterung.drivingbetter;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,9 +21,18 @@ public class LoginActivity extends AppCompatActivity {
         objManageTABLE = new ManageTABLE(this);
 
         //Test Add Value
-        testAddValue();
+        //testAddValue();
+
+        //Delete Value in SQLite
+        deleteAllValue();
 
     }   // onCreate
+
+    private void deleteAllValue() {
+
+        SQLiteDatabase objSqLiteDatabase = o
+
+    }
 
     public void clickSignUp(View view) {
 
