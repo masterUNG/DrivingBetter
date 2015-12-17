@@ -16,10 +16,15 @@
     <string name="fix">แนะนำการซ่อมบำรุง</string>
     <string name="gps">GPS</string>
     <string name="tel">ข้อมูลศูนย์บริการ</string>
-    
-    
+
+
     <string name="hint_id_car">กข-1234</string>
-    <string name="hint_passowrd">นี่คือพาส</string>
-    
+    <string name="hint_password">อย่างน้อย7ตัว</string>
+    <string name="hint_mile">ระยะทางสะสมทั้งหมด</string>
+    <string name="hint_act">วันที่ต่อ พรบ. ล่าสุด</string>
+    <string name="hint_tax">วันที่ต่อภาษีล่าสุด</string>
+    <string name="hint_insure">วันที่ต่อประกันภัยรถยนต์ล่าสุด</string>
+    <string name="hint_batt">วันที่เปลี่ยนแบตฯล่าสุด</string>
+    <string name="hint_tire">วันที่เติมลมยางล่าสุด</string>
 
 </resources>
