@@ -3,6 +3,7 @@ package appewtc.masterung.drivingbetter;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -46,9 +47,21 @@ public class SingUpActivity extends AppCompatActivity {
 
     private void createSpinner() {
 
-        String[] strProvinceArray = getResources().getStringArray(R.array.province);
+        final String[] strProvinceArray = getResources().getStringArray(R.array.province);
         ArrayAdapter<String> objAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, strProvinceArray);
         provinceSpinner.setAdapter(objAdapter);
+
+        provinceSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                provinceString = strProvinceArray[i];
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                provinceString = strProvinceArray[0];
+            }
+        });
 
     }   // createSpinner
 
@@ -62,6 +75,38 @@ public class SingUpActivity extends AppCompatActivity {
     }   // getAndShowTime
 
     public void clickSaveData(View view) {
+
+        idCarString = idCarEditText.getText().toString().trim();
+        passwordString = passwordEditText.getText().toString().trim();
+        MileCarString = MileCarEditText.getText().toString().trim();
+        actString = actEditText.getText().toString().trim();
+        taxString = taxEditText.getText().toString().trim();
+        insureString = insureEditText.getText().toString().trim();
+        battString = battEditText.getText().toString().trim();
+        tireString = tireEditText.getText().toString().trim();
+        engineOilString = engineOilEditText.getText().toString().trim();
+
+        //Check Space
+        if (idCarString.equals("")||
+                passwordString.equals("")||
+                MileCarString.equals("")||
+                actString.equals("")||
+                taxString.equals("")||
+                insureString.equals("")||
+                battString.equals("")||
+                tireString.equals("")||
+                engineOilString.equals("")) {
+
+            //Have Space
+            MyAlertDialog objMyAlertDialog = new MyAlertDialog();
+            objMyAlertDialog.errorDialog(SingUpActivity.this, "มีช่องว่าง", "กรุณากรอกทุกช่อง ครับ");
+
+        } else {
+
+            //No Space
+
+        }
+
 
     }   // clickSaveData
 
