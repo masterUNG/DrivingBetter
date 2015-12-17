@@ -1,6 +1,7 @@
 package appewtc.masterung.drivingbetter;
 
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -8,20 +9,25 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class SingUpActivity extends AppCompatActivity {
 
     //Explicit
     private EditText idCarEditText, passwordEditText, MileCarEditText,
-             actEditText, taxEditText, insureEditText, battEditText,
+            actEditText, taxEditText, insureEditText, battEditText,
             tireEditText, engineOilEditText;
 
     private String idCarString, passwordString, MileCarString, MileString,
-             actString, taxString, insureString, battString,
+            actString, taxString, insureString, battString,
             tireString, engineOilString, radiatorString, fullserviceString,
             dateString, provinceString;
 
@@ -87,14 +93,14 @@ public class SingUpActivity extends AppCompatActivity {
         engineOilString = engineOilEditText.getText().toString().trim();
 
         //Check Space
-        if (idCarString.equals("")||
-                passwordString.equals("")||
-                MileCarString.equals("")||
-                actString.equals("")||
-                taxString.equals("")||
-                insureString.equals("")||
-                battString.equals("")||
-                tireString.equals("")||
+        if (idCarString.equals("") ||
+                passwordString.equals("") ||
+                MileCarString.equals("") ||
+                actString.equals("") ||
+                taxString.equals("") ||
+                insureString.equals("") ||
+                battString.equals("") ||
+                tireString.equals("") ||
                 engineOilString.equals("")) {
 
             //Have Space
@@ -132,8 +138,36 @@ public class SingUpActivity extends AppCompatActivity {
 
     private void confirmToMySQL() {
 
+        //Setup New Policy
+        StrictMode.ThreadPolicy myPolicy = new StrictMode.ThreadPolicy
+                .Builder().permitAll().build();
+        StrictMode.setThreadPolicy(myPolicy);
 
-    }
+        try {
+
+            ArrayList<NameValuePair> objNameValuePairs = new ArrayList<NameValuePair>();
+            objNameValuePairs.add(new BasicNameValuePair("isAdd", "true"));
+            objNameValuePairs.add(new BasicNameValuePair("Id_Car", idCarString));
+            objNameValuePairs.add(new BasicNameValuePair("isAdd", "true"));
+            objNameValuePairs.add(new BasicNameValuePair("isAdd", "true"));
+            objNameValuePairs.add(new BasicNameValuePair("isAdd", "true"));
+            objNameValuePairs.add(new BasicNameValuePair("isAdd", "true"));
+            objNameValuePairs.add(new BasicNameValuePair("isAdd", "true"));
+            objNameValuePairs.add(new BasicNameValuePair("isAdd", "true"));
+            objNameValuePairs.add(new BasicNameValuePair("isAdd", "true"));
+            objNameValuePairs.add(new BasicNameValuePair("isAdd", "true"));
+            objNameValuePairs.add(new BasicNameValuePair("isAdd", "true"));
+            objNameValuePairs.add(new BasicNameValuePair("isAdd", "true"));
+            objNameValuePairs.add(new BasicNameValuePair("isAdd", "true"));
+            objNameValuePairs.add(new BasicNameValuePair("isAdd", "true"));
+
+
+            Toast.makeText(SingUpActivity.this, "Update New Value Successful", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(SingUpActivity.this, "ไม่สามารถ เชื่อมต่อ Server ได้", Toast.LENGTH_SHORT).show();
+        }
+
+    }   // confirmToMySQL
 
 
     private void bindWidget() {
