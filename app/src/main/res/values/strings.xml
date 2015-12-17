@@ -16,5 +16,10 @@
     <string name="fix">แนะนำการซ่อมบำรุง</string>
     <string name="gps">GPS</string>
     <string name="tel">ข้อมูลศูนย์บริการ</string>
+    
+    
+    <string name="hint_id_car">กข-1234</string>
+    <string name="hint_passowrd">นี่คือพาส</string>
+    
 
 </resources>

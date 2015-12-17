@@ -26,6 +26,15 @@
                 android:textSize="@dimen/h1"
                 android:text="@string/head1" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+                android:id="@+id/textView16"
+                android:textSize="@dimen/h2"
+                android:layout_gravity="center_horizontal"
+                android:textStyle="bold" />
+
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
@@ -45,7 +54,14 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/editText3"
                     android:layout_weight="2"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:hint="@string/hint_id_car" />
+
+                <Spinner
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner"
+                    android:layout_weight="2" />
             </LinearLayout>
 
             <LinearLayout
@@ -230,7 +246,8 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=""
+        android:onClick="clickSaveData"
+        android:text="Save Data"
         android:id="@+id/button4"
         android:layout_alignParentBottom="true" />
 </RelativeLayout>
