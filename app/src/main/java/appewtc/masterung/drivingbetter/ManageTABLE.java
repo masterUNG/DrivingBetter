@@ -2,6 +2,7 @@ package appewtc.masterung.drivingbetter;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 /**
@@ -60,12 +61,47 @@ public class ManageTABLE {
 
         try {
 
+            String[] strResult = null;
+            Cursor objCursor = readSqLiteDatabase.query(TABLE_CAR,
+                    new String[]{COLUMN_ID,
+                            COLUMN_Id_Car,
+                            COLUMN_Password,
+                            COLUMN_MileCar,
+                            COLUMN_Date,
+                            COLUMN_Mile,
+                            COLUMN_ACT,
+                            COLUMN_TAX,
+                            COLUMN_Insure,
+                            COLUMN_Batt,
+                            COLUMN_Tire,
+                            COLUMN_Engine_oil,
+                            COLUMN_Radiator,
+                            COLUMN_Fullservice},
+                    COLUMN_Id_Car + "=?",
+                    new String[]{String.valueOf(strIDcard)},
+                    null, null, null, null);
+
+            if (objCursor != null) {
+                if (objCursor.moveToFirst()) {
+
+                    strResult = new String[objCursor.getColumnCount()];
+                    for (int i=0;i<objCursor.getColumnCount();i++) {
+
+                        strResult[i] = objCursor.getString(i);
+
+                    }   //for
+
+                }   // if2
+            }   // if1
+
+            objCursor.close();
+            return strResult;
+
         } catch (Exception e) {
             return null;
         }
 
-        return new String[0];
-    }
+    }   // searchIDcard
 
 
     public long addValueLoginTABLE(String strID,
@@ -95,7 +131,6 @@ public class ManageTABLE {
 
         return writeSqLiteDatabase.insert(TABLE_FIX, null, objContentValues);
     }
-
 
 
     public long addValueEmerTABLE(String strImageSer,
@@ -145,8 +180,6 @@ public class ManageTABLE {
 
         return writeSqLiteDatabase.insert(TABLE_CAR, null, objContentValues);
     }
-
-
 
 
 }   // Main Class

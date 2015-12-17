@@ -70,10 +70,38 @@ public class LoginActivity extends AppCompatActivity {
         } else {
 
             //No Space
+            checkIDcard();
 
         }
 
     }   // clickLogin
+
+    private void checkIDcard() {
+
+        try {
+
+            String[] strResult = objManageTABLE.searchIDcard(idCardString);
+
+            //Check Password
+            if (passwordString.equals(strResult[2])) {
+
+                //Intent To MainHoldActivity
+                Intent objIntent = new Intent(LoginActivity.this, MainHoldActivity.class);
+                startActivity(objIntent);
+
+            } else {
+
+                MyAlertDialog objMyAlertDialog = new MyAlertDialog();
+                objMyAlertDialog.errorDialog(LoginActivity.this, "Password False", "โปรดพิมพ์ ใหม่อีกครั้ง Password ผิด");
+
+            }
+
+        } catch (Exception e) {
+            MyAlertDialog objMyAlertDialog = new MyAlertDialog();
+            objMyAlertDialog.errorDialog(LoginActivity.this, "ไม่พบข้อมูล", "ไม่พบ เลขทะเบียน " + idCardString + " บนฐานข้อมูล ของเรา");
+        }
+
+    }   // checkIDcard
 
     public void clickClear(View view) {
 
