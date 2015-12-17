@@ -7,7 +7,10 @@ import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -26,7 +29,8 @@ public class LoginActivity extends AppCompatActivity {
     //Explicit
     private ManageTABLE objManageTABLE;
     private EditText idCardEditText, passwordEditText;
-    private String idCardString, passwordString;
+    private String idCardString, passwordString, provinceString;
+    private Spinner provinceSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,16 +52,41 @@ public class LoginActivity extends AppCompatActivity {
         //Synchronize mySQL to SQLite
         synchronizeMySQLtoSQLite();
 
+        //Create Spinner
+        createSpinner();
+
     }   // onCreate
+
+    private void createSpinner() {
+
+        final String[] strProcinceArray = getResources().getStringArray(R.array.province);
+        ArrayAdapter<String> objAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, strProcinceArray);
+        provinceSpinner.setAdapter(objAdapter);
+
+        provinceSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                provinceString = strProcinceArray[i];
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                provinceString = strProcinceArray[0];
+            }
+        });
+
+    }   // createSpinner
 
     private void bindWidget() {
         idCardEditText = (EditText) findViewById(R.id.editText);
         passwordEditText = (EditText) findViewById(R.id.editText2);
+        provinceSpinner = (Spinner) findViewById(R.id.spinner2);
     }
 
     public void clickLogin(View view) {
 
-        idCardString = idCardEditText.getText().toString().trim();
+        idCardString = idCardEditText.getText().toString().trim() + " " + provinceString;
         passwordString = passwordEditText.getText().toString().trim();
 
         //Check Space

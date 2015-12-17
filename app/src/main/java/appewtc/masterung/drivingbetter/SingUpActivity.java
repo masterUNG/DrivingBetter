@@ -104,11 +104,36 @@ public class SingUpActivity extends AppCompatActivity {
         } else {
 
             //No Space
+            checkIDcar();
 
         }
 
 
     }   // clickSaveData
+
+    private void checkIDcar() {
+
+        try {
+
+            //Alert Have This IDcar on my Database
+            ManageTABLE objManageTABLE = new ManageTABLE(this);
+            String[] strResult = objManageTABLE.searchIDcard(idCarString);
+
+            MyAlertDialog objMyAlertDialog = new MyAlertDialog();
+            objMyAlertDialog.errorDialog(SingUpActivity.this, "Error IDcar", "มี หมายเลยทะเบียน " + strResult[1] + " ใน ฐานข้อมูลของเราแล้ว ให้ใช้ หมายเลข ทะเบียนอื่น");
+
+        } catch (Exception e) {
+            //Confirm to mySQL
+            confirmToMySQL();
+
+        }
+
+    }   // checkIDcar
+
+    private void confirmToMySQL() {
+
+
+    }
 
 
     private void bindWidget() {
