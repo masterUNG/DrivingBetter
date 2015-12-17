@@ -2,9 +2,9 @@ package appewtc.masterung.drivingbetter;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -61,7 +61,7 @@ public class LoginActivity extends AppCompatActivity {
         passwordString = passwordEditText.getText().toString().trim();
 
         //Check Space
-        if (idCardString.equals("") || passwordString.equals("") ) {
+        if (idCardString.equals("") || passwordString.equals("")) {
 
             //Have Space
             MyAlertDialog objMyAlertDialog = new MyAlertDialog();
