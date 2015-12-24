@@ -12,6 +12,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 
 import java.text.DateFormat;
@@ -146,20 +150,34 @@ public class SingUpActivity extends AppCompatActivity {
         try {
 
             ArrayList<NameValuePair> objNameValuePairs = new ArrayList<NameValuePair>();
+//            objNameValuePairs.add(new BasicNameValuePair("isAdd", "true"));
+//            objNameValuePairs.add(new BasicNameValuePair("Id_Car", idCarString));
+//            objNameValuePairs.add(new BasicNameValuePair("Password", passwordString));
+//            objNameValuePairs.add(new BasicNameValuePair("MileCar", MileCarString));
+//            objNameValuePairs.add(new BasicNameValuePair("Date", dateString));
+//            objNameValuePairs.add(new BasicNameValuePair("Mile", MileString));
+//            objNameValuePairs.add(new BasicNameValuePair("ACT", actString));
+//            objNameValuePairs.add(new BasicNameValuePair("TAX", taxString));
+//            objNameValuePairs.add(new BasicNameValuePair("Insure", insureString));
+//            objNameValuePairs.add(new BasicNameValuePair("Batt", battString));
+//            objNameValuePairs.add(new BasicNameValuePair("Tire", tireString));
+//            objNameValuePairs.add(new BasicNameValuePair("Engine_oil", engineOilString));
+//            objNameValuePairs.add(new BasicNameValuePair("Radiator", radiatorString));
+//            objNameValuePairs.add(new BasicNameValuePair("Fullservice", fullserviceString));
+
+            //Test Add
             objNameValuePairs.add(new BasicNameValuePair("isAdd", "true"));
-            objNameValuePairs.add(new BasicNameValuePair("Id_Car", idCarString));
-            objNameValuePairs.add(new BasicNameValuePair("isAdd", "true"));
-            objNameValuePairs.add(new BasicNameValuePair("isAdd", "true"));
-            objNameValuePairs.add(new BasicNameValuePair("isAdd", "true"));
-            objNameValuePairs.add(new BasicNameValuePair("isAdd", "true"));
-            objNameValuePairs.add(new BasicNameValuePair("isAdd", "true"));
-            objNameValuePairs.add(new BasicNameValuePair("isAdd", "true"));
-            objNameValuePairs.add(new BasicNameValuePair("isAdd", "true"));
-            objNameValuePairs.add(new BasicNameValuePair("isAdd", "true"));
-            objNameValuePairs.add(new BasicNameValuePair("isAdd", "true"));
-            objNameValuePairs.add(new BasicNameValuePair("isAdd", "true"));
-            objNameValuePairs.add(new BasicNameValuePair("isAdd", "true"));
-            objNameValuePairs.add(new BasicNameValuePair("isAdd", "true"));
+            objNameValuePairs.add(new BasicNameValuePair("ID_Carlogin", "test"));
+            objNameValuePairs.add(new BasicNameValuePair("TimeDate", "test"));
+            objNameValuePairs.add(new BasicNameValuePair("Lat", "test"));
+            objNameValuePairs.add(new BasicNameValuePair("Lng", "test"));
+
+
+            HttpClient objHttpClient = new DefaultHttpClient();
+            //HttpPost objHttpPost = new HttpPost("http://swiftcodingthai.com/car/php_add_data_master.php");
+            HttpPost objHttpPost = new HttpPost("http://swiftcodingthai.com/car/php_add_data_gps.php");
+            objHttpPost.setEntity(new UrlEncodedFormEntity(objNameValuePairs, "UTF-8"));
+            objHttpClient.execute(objHttpPost);
 
 
             Toast.makeText(SingUpActivity.this, "Update New Value Successful", Toast.LENGTH_SHORT).show();
