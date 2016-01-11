@@ -105,7 +105,8 @@ public class InformationActivity extends AppCompatActivity {
         tireNextTextView.setText(tireStrings[0] + "/" + tireStrings[1] +
                 "/" + Integer.toString(intYearTire));
 
-
+        int intEngineOil = Integer.parseInt(engineOidString) + 10000;
+        engineOidNextTextView.setText(Integer.toString(intEngineOil));
 
     }   // showView
 
