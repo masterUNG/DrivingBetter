@@ -72,6 +72,13 @@ public class InformationActivity extends AppCompatActivity {
         tireTextView.setText(tireString);
         engineOidTextView.setText(engineOidString);
 
+        //Split String
+        String[] ACTStrings = ACTString.split("/");
+        for (int i=0;i<ACTStrings.length;i++) {
+            Log.d("car", "ACTStrings[" + Integer.toString(i) + "] = " + ACTStrings[i]);
+        }   //for
+
+
     }   // showView
 
     private void bindWidget() {
