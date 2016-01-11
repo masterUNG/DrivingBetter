@@ -86,6 +86,11 @@ public class InformationActivity extends AppCompatActivity {
 
         ACTnextTextView.setText(ACTnextString);
 
+        String[] taxStrings = taxString.split("/");
+        int intYearTax = Integer.parseInt(taxStrings[2]) + 1;
+        taxnextTextView.setText(taxStrings[0] + "/" + taxStrings[1] + "/" + Integer.toString(intYearTax));
+
+
 
     }   // showView
 
