@@ -90,6 +90,9 @@ public class InformationActivity extends AppCompatActivity {
         int intYearTax = Integer.parseInt(taxStrings[2]) + 1;
         taxnextTextView.setText(taxStrings[0] + "/" + taxStrings[1] + "/" + Integer.toString(intYearTax));
 
+        String[] insureStrings = insureString.split("/");
+        int intYearInsure = Integer.parseInt(insureStrings[2]) + 1;
+        insureNextTextView.setText(insureStrings[0] + "/" + insureStrings[1] + "/" + Integer.toString(intYearInsure));
 
 
     }   // showView
