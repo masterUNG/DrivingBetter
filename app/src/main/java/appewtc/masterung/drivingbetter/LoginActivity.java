@@ -116,6 +116,9 @@ public class LoginActivity extends AppCompatActivity {
 
                 //Intent To MainHoldActivity
                 Intent objIntent = new Intent(LoginActivity.this, MainHoldActivity.class);
+
+                objIntent.putExtra("id", strResult[0]);
+
                 startActivity(objIntent);
 
             } else {
