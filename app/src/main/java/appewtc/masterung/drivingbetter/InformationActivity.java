@@ -94,6 +94,18 @@ public class InformationActivity extends AppCompatActivity {
         int intYearInsure = Integer.parseInt(insureStrings[2]) + 1;
         insureNextTextView.setText(insureStrings[0] + "/" + insureStrings[1] + "/" + Integer.toString(intYearInsure));
 
+        String[] battStrings = battString.split("/");
+        int intYearBatt = Integer.parseInt(battStrings[2]) + 2;
+        battNextTextView.setText(battStrings[0] +
+        "/" + battStrings[1] +
+        "/" + Integer.toString(intYearBatt));
+
+        String[] tireStrings = tireString.split("/");
+        int intYearTire = Integer.parseInt(tireStrings[2]) + 2;
+        tireNextTextView.setText(tireStrings[0] + "/" + tireStrings[1] +
+                "/" + Integer.toString(intYearTire));
+
+
 
     }   // showView
 
