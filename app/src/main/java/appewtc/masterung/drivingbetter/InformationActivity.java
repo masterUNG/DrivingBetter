@@ -1,7 +1,10 @@
 package appewtc.masterung.drivingbetter;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.TextView;
 
 public class InformationActivity extends AppCompatActivity {
@@ -24,7 +27,26 @@ public class InformationActivity extends AppCompatActivity {
         //Bind Widget
         bindWidget();
 
+        //Show View
+        showView();
+
     }    // Main Method
+
+    private void showView() {
+
+        //Receive id from Intent
+        String strID = getIntent().getStringExtra("id");
+        int intID = Integer.parseInt(strID);
+
+        //Get Value from Database
+        SQLiteDatabase objSqLiteDatabase = openOrCreateDatabase(MyOpenHelper.DATABASE_NAME,
+                MODE_PRIVATE, null);
+        Cursor objCursor = objSqLiteDatabase.rawQuery("SELECT * FROM carTABLE", null);
+        objCursor.moveToFirst();
+        objCursor.moveToPosition(intID-1);
+        Log.d("car", "idCar = " + objCursor.getString(objCursor.getColumnIndex(ManageTABLE.COLUMN_Id_Car)));
+
+    }   // showView
 
     private void bindWidget() {
 

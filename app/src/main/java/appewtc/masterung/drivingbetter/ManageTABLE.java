@@ -15,20 +15,20 @@ public class ManageTABLE {
     private SQLiteDatabase writeSqLiteDatabase, readSqLiteDatabase;
 
     public static final String TABLE_CAR = "carTABLE";
-    private static final String COLUMN_ID = "_id";
-    private static final String COLUMN_Id_Car = "Id_Car";
-    private static final String COLUMN_Password = "Password";
-    private static final String COLUMN_MileCar = "MileCar";
-    private static final String COLUMN_Date = "Date";
-    private static final String COLUMN_Mile = "Mile";
-    private static final String COLUMN_ACT = "ACT";
-    private static final String COLUMN_TAX = "TAX";
-    private static final String COLUMN_Insure = "Insure";
-    private static final String COLUMN_Batt = "Batt";
-    private static final String COLUMN_Tire = "Tire";
-    private static final String COLUMN_Engine_oil = "Engine_oil";
-    private static final String COLUMN_Radiator = "Radiator";
-    private static final String COLUMN_Fullservice = "Fullservice";
+    public static final String COLUMN_ID = "_id";
+    public static final String COLUMN_Id_Car = "Id_Car";
+    public static final String COLUMN_Password = "Password";
+    public static final String COLUMN_MileCar = "MileCar";
+    public static final String COLUMN_Date = "Date";
+    public static final String COLUMN_Mile = "Mile";
+    public static final String COLUMN_ACT = "ACT";
+    public static final String COLUMN_TAX = "TAX";
+    public static final String COLUMN_Insure = "Insure";
+    public static final String COLUMN_Batt = "Batt";
+    public static final String COLUMN_Tire = "Tire";
+    public static final String COLUMN_Engine_oil = "Engine_oil";
+    public static final String COLUMN_Radiator = "Radiator";
+    public static final String COLUMN_Fullservice = "Fullservice";
 
     public static final String TABLE_EMER = "emerTABLE";
     private static final String COLUMN_ImgService = "ImgService";
