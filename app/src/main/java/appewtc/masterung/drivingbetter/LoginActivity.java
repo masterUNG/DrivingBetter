@@ -89,6 +89,8 @@ public class LoginActivity extends AppCompatActivity {
         idCardString = idCardEditText.getText().toString().trim() + " " + provinceString;
         passwordString = passwordEditText.getText().toString().trim();
 
+        Log.d("car", "idCardString = " + idCardString);
+
         //Check Space
         if (idCardString.equals("") || passwordString.equals("")) {
 

@@ -1,5 +1,6 @@
 package appewtc.masterung.drivingbetter;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,6 +24,9 @@ public class MainHoldActivity extends AppCompatActivity {
     }   // Main Method
 
     public void clickInformation(View view) {
+        Intent objIntent = new Intent(MainHoldActivity.this, InformationActivity.class);
+        objIntent.putExtra("id", idString);
+        startActivity(objIntent);
 
     }
 
