@@ -74,7 +74,7 @@ public class InformationActivity extends AppCompatActivity {
 
         //Split String
         String[] ACTStrings = ACTString.split("/");
-        for (int i=0;i<ACTStrings.length;i++) {
+        for (int i = 0; i < ACTStrings.length; i++) {
             Log.d("car", "ACTStrings[" + Integer.toString(i) + "] = " + ACTStrings[i]);
         }   //for
 
