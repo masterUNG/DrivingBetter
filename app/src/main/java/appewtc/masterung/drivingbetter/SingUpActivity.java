@@ -149,7 +149,7 @@ public class SingUpActivity extends AppCompatActivity {
 
         try {
 
-            ArrayList<NameValuePair> objNameValuePairs = new ArrayList<NameValuePair>();
+//            ArrayList<NameValuePair> objNameValuePairs = new ArrayList<NameValuePair>();
 //            objNameValuePairs.add(new BasicNameValuePair("isAdd", "true"));
 //            objNameValuePairs.add(new BasicNameValuePair("Id_Car", idCarString));
 //            objNameValuePairs.add(new BasicNameValuePair("Password", passwordString));
@@ -164,20 +164,26 @@ public class SingUpActivity extends AppCompatActivity {
 //            objNameValuePairs.add(new BasicNameValuePair("Engine_oil", engineOilString));
 //            objNameValuePairs.add(new BasicNameValuePair("Radiator", radiatorString));
 //            objNameValuePairs.add(new BasicNameValuePair("Fullservice", fullserviceString));
+//
+//            HttpClient objHttpClient = new DefaultHttpClient();
+//            //HttpPost objHttpPost = new HttpPost("http://swiftcodingthai.com/car/php_add_data_master.php");
+//            HttpPost objHttpPost = new HttpPost("http://swiftcodingthai.com/car/php_add_data_gps.php");
+//            objHttpPost.setEntity(new UrlEncodedFormEntity(objNameValuePairs, "UTF-8"));
+//            objHttpClient.execute(objHttpPost);
 
-            //Test Add
+            ArrayList<NameValuePair> objNameValuePairs = new ArrayList<NameValuePair>();
             objNameValuePairs.add(new BasicNameValuePair("isAdd", "true"));
-            objNameValuePairs.add(new BasicNameValuePair("ID_Carlogin", "test"));
-            objNameValuePairs.add(new BasicNameValuePair("TimeDate", "test"));
-            objNameValuePairs.add(new BasicNameValuePair("Lat", "test"));
-            objNameValuePairs.add(new BasicNameValuePair("Lng", "test"));
-
+            objNameValuePairs.add(new BasicNameValuePair("Officer", "masterTest123"));
+            objNameValuePairs.add(new BasicNameValuePair("Desk", "masterTest"));
+            objNameValuePairs.add(new BasicNameValuePair("Food", "masterTest"));
+            objNameValuePairs.add(new BasicNameValuePair("Item", "masterTest"));
 
             HttpClient objHttpClient = new DefaultHttpClient();
-            //HttpPost objHttpPost = new HttpPost("http://swiftcodingthai.com/car/php_add_data_master.php");
-            HttpPost objHttpPost = new HttpPost("http://swiftcodingthai.com/car/php_add_data_gps.php");
+            HttpPost objHttpPost = new HttpPost("http://swiftcodingthai.com/12dec/php_add_data.php");
             objHttpPost.setEntity(new UrlEncodedFormEntity(objNameValuePairs, "UTF-8"));
             objHttpClient.execute(objHttpPost);
+
+
 
 
             Toast.makeText(SingUpActivity.this, "Update New Value Successful", Toast.LENGTH_SHORT).show();
