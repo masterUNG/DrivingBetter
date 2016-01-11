@@ -18,6 +18,13 @@ public class InformationActivity extends AppCompatActivity {
             tireTextView, tireNextTextView,
             engineOidTextView, engineOidNextTextView;
 
+    private String idCarString, currentMileString,
+            ACTString, ACTnextString,
+            taxString, taxnextString,
+            insureString, insureNextString,
+            battString, battNextString,
+            tireString, tireNextString,
+            engineOidString, engineOidNextString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +50,27 @@ public class InformationActivity extends AppCompatActivity {
                 MODE_PRIVATE, null);
         Cursor objCursor = objSqLiteDatabase.rawQuery("SELECT * FROM carTABLE", null);
         objCursor.moveToFirst();
-        objCursor.moveToPosition(intID-1);
+        objCursor.moveToPosition(intID - 1);
         Log.d("car", "idCar = " + objCursor.getString(objCursor.getColumnIndex(ManageTABLE.COLUMN_Id_Car)));
+
+        idCarString = objCursor.getString(objCursor.getColumnIndex(ManageTABLE.COLUMN_Id_Car));
+        currentMileString = objCursor.getString(objCursor.getColumnIndex(ManageTABLE.COLUMN_MileCar));
+        ACTString = objCursor.getString(objCursor.getColumnIndex(ManageTABLE.COLUMN_ACT));
+        taxString = objCursor.getString(objCursor.getColumnIndex(ManageTABLE.COLUMN_TAX));
+        insureString = objCursor.getString(objCursor.getColumnIndex(ManageTABLE.COLUMN_Insure));
+        battString = objCursor.getString(objCursor.getColumnIndex(ManageTABLE.COLUMN_Batt));
+        tireString = objCursor.getString(objCursor.getColumnIndex(ManageTABLE.COLUMN_Tire));
+        engineOidString = objCursor.getString(objCursor.getColumnIndex(ManageTABLE.COLUMN_Engine_oil));
+
+        //Show at TextView
+        idCarTextView.setText(idCarString);
+        currentMileTextView.setText(currentMileString);
+        ACTextView.setText(ACTString);
+        taxTextView.setText(taxString);
+        insureTextView.setText(insureString);
+        battTextView.setText(battString);
+        tireTextView.setText(tireString);
+        engineOidTextView.setText(engineOidString);
 
     }   // showView
 
