@@ -24,7 +24,8 @@
         <activity android:name=".SingUpActivity" />
         <activity android:name=".MainHoldActivity" />
         <activity android:name=".InformationActivity" />
-        <activity android:name=".RepairListView"></activity>
+        <activity android:name=".RepairListView" />
+        <activity android:name=".DetailRepairActivity"></activity>
     </application>
 
 </manifest>

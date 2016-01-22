@@ -1,9 +1,12 @@
 package appewtc.masterung.drivingbetter;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 public class RepairListView extends AppCompatActivity {
@@ -24,17 +27,21 @@ public class RepairListView extends AppCompatActivity {
 
     }   // Main Method
 
+    public void clickBackRepairListView(View view) {
+        finish();
+    }
+
     private void createListView() {
 
         //Get Value From SQLite
         SQLiteDatabase objSqLiteDatabase = openOrCreateDatabase(MyOpenHelper.DATABASE_NAME,
                 MODE_PRIVATE, null);
-        Cursor objCursor = objSqLiteDatabase.rawQuery("SELECT * FROM fixTABLE", null);
+        final Cursor objCursor = objSqLiteDatabase.rawQuery("SELECT * FROM fixTABLE", null);
         objCursor.moveToFirst();
         int intLoop = objCursor.getCount();
-        String[] topicStrings = new String[intLoop];
-        String[] imageFixStrings = new String[intLoop];
-        String[] descripFixStrings = new String[intLoop];
+        final String[] topicStrings = new String[intLoop];
+        final String[] imageFixStrings = new String[intLoop];
+        final String[] descripFixStrings = new String[intLoop];
 
         for (int i=0;i<intLoop;i++) {
 
@@ -49,6 +56,21 @@ public class RepairListView extends AppCompatActivity {
         //Create ListView
         RepairAdapter objRepairAdapter = new RepairAdapter(RepairListView.this, topicStrings, imageFixStrings);
         repairListView.setAdapter(objRepairAdapter);
+
+        //Active Click ListView
+        repairListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Intent objIntent = new Intent(RepairListView.this, DetailRepairActivity.class);
+                objIntent.putExtra("Title", topicStrings[i]);
+                objIntent.putExtra("Image", imageFixStrings[i]);
+                objIntent.putExtra("Detail", descripFixStrings[i]);
+                startActivity(objIntent);
+
+            }   // event
+        });
+
 
     }   // createListView
 
