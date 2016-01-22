@@ -27,4 +27,7 @@
     <string name="hint_batt">วันที่เปลี่ยนแบตฯล่าสุด</string>
     <string name="hint_tire">วันที่เติมลมยางล่าสุด</string>
 
+    <string name="title1">ศูนย์บริการ</string>
+    <string name="title2">ประกันภัย</string>
+
 </resources>
