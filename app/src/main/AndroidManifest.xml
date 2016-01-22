@@ -25,7 +25,8 @@
         <activity android:name=".MainHoldActivity" />
         <activity android:name=".InformationActivity" />
         <activity android:name=".RepairListView" />
-        <activity android:name=".DetailRepairActivity"></activity>
+        <activity android:name=".DetailRepairActivity" />
+        <activity android:name=".ServiceCenterActivity"></activity>
     </application>
 
 </manifest>
