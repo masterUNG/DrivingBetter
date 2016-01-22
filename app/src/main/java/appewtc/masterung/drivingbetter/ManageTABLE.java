@@ -31,21 +31,21 @@ public class ManageTABLE {
     public static final String COLUMN_Fullservice = "Fullservice";
 
     public static final String TABLE_EMER = "emerTABLE";
-    private static final String COLUMN_ImgService = "ImgService";
-    private static final String COLUMN_TelService = "TelService";
-    private static final String COLUMN_ImgInsure = "ImgInsure";
-    private static final String COLUMN_TelInsure = "TelInsure";
+    public static final String COLUMN_ImgService = "ImgService";
+    public static final String COLUMN_TelService = "TelService";
+    public static final String COLUMN_ImgInsure = "ImgInsure";
+    public static final String COLUMN_TelInsure = "TelInsure";
 
     public static final String TABLE_FIX = "fixTABLE";
-    private static final String COLUMN_Topig = "Topig";
-    private static final String COLUMN_ImageFix = "ImageFix";
-    private static final String COLUMN_DescripFix = "DescripFix";
+    public static final String COLUMN_Topig = "Topig";
+    public static final String COLUMN_ImageFix = "ImageFix";
+    public static final String COLUMN_DescripFix = "DescripFix";
 
     public static final String TABLE_LOGIN = "loginTABLE";
-    private static final String COLUMN_ID_car_login = "ID_car_login";
-    private static final String COLUMN_TimeDate = "TimeDate";
-    private static final String COLUMN_Lat = "Lat";
-    private static final String COLUMN_Lng = "Lng";
+    public static final String COLUMN_ID_car_login = "ID_car_login";
+    public static final String COLUMN_TimeDate = "TimeDate";
+    public static final String COLUMN_Lat = "Lat";
+    public static final String COLUMN_Lng = "Lng";
 
 
     public ManageTABLE(Context context) {
