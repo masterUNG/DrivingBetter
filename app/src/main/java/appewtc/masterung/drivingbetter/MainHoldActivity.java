@@ -32,6 +32,8 @@ public class MainHoldActivity extends AppCompatActivity {
 
     public void clickRepair(View view) {
 
+        startActivity(new Intent(MainHoldActivity.this, RepairListView.class));
+
     }
 
 
