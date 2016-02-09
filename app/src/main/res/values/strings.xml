@@ -29,5 +29,6 @@
 
     <string name="title1">ศูนย์บริการ</string>
     <string name="title2">ประกันภัย</string>
+    <string name="title_activity_maps">Map</string>
 
 </resources>
