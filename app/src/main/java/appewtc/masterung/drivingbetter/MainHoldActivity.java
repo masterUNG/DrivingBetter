@@ -39,9 +39,10 @@ public class MainHoldActivity extends AppCompatActivity {
     }
 
 
+
     public void clickGPS(View view) {
 
-    }
+    }   //
 
     public void clickCenterService(View view) {
 
