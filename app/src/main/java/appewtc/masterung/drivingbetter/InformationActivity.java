@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
 
+import java.util.Calendar;
+
 public class InformationActivity extends AppCompatActivity {
 
     //Explicit
@@ -26,6 +28,7 @@ public class InformationActivity extends AppCompatActivity {
             tireString, tireNextString,
             engineOidString, engineOidNextString;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +40,51 @@ public class InformationActivity extends AppCompatActivity {
         //Show View
         showView();
 
+        createNextTimeAlert();
+
     }    // Main Method
+
+    private void createNextTimeAlert() {
+
+        Calendar currentCalendar = Calendar.getInstance();
+
+        Log.d("11Feb", "Month ==> " + currentCalendar.get(Calendar.MONTH));
+
+        Calendar[] alertCalendar = new Calendar[4];
+        String[] alertTime = new String[4];
+        alertTime[0] = ACTnextTextView.getText().toString();
+        alertTime[1] = taxnextTextView.getText().toString();
+        alertTime[2] = insureNextTextView.getText().toString();
+        alertTime[3] = battNextTextView.getText().toString();
+
+
+        for (int i = 0; i < 4; i++) {
+
+            alertCalendar[i] = (Calendar) currentCalendar.clone();
+            alertCalendar[i].set(Calendar.DAY_OF_MONTH, timeOfMonth(alertTime[i], 0));
+            alertCalendar[i].set(Calendar.MONTH, timeOfMonth(alertTime[i], 1) - 1);
+            alertCalendar[i].set(Calendar.YEAR, timeOfMonth(alertTime[i], 2));
+            alertCalendar[i].set(Calendar.HOUR_OF_DAY, 8);  // Alert 8 โมง
+            alertCalendar[i].set(Calendar.MINUTE, 0);       // นาที่
+            alertCalendar[i].set(Calendar.SECOND, 0);
+            alertCalendar[i].set(Calendar.MILLISECOND, 0);
+
+            Log.d("11Feb", "alertCalendat[" + i + "] = " + alertCalendar[i].getTime());
+
+        }   //for
+
+    }   // createNextTimeAlert
+
+    private int timeOfMonth(String strDate, int intIndex) {
+
+        int intResult = 0;
+
+        String[] resultStrings = strDate.split("/");
+
+        intResult = Integer.parseInt(resultStrings[intIndex]);
+
+        return intResult;
+    }
 
     private void showView() {
 
@@ -82,6 +129,7 @@ public class InformationActivity extends AppCompatActivity {
         int intYear = Integer.parseInt(ACTStrings[2]);
         intYear += 1;
 
+
         ACTnextString = ACTStrings[0] + "/" + ACTStrings[1] + "/" + Integer.toString(intYear);
 
         ACTnextTextView.setText(ACTnextString);
@@ -97,8 +145,8 @@ public class InformationActivity extends AppCompatActivity {
         String[] battStrings = battString.split("/");
         int intYearBatt = Integer.parseInt(battStrings[2]) + 2;
         battNextTextView.setText(battStrings[0] +
-        "/" + battStrings[1] +
-        "/" + Integer.toString(intYearBatt));
+                "/" + battStrings[1] +
+                "/" + Integer.toString(intYearBatt));
 
         String[] tireStrings = tireString.split("/");
         int intYearTire = Integer.parseInt(tireStrings[2]) + 2;
