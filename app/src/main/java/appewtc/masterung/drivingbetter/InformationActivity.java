@@ -1,5 +1,9 @@
 package appewtc.masterung.drivingbetter;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -70,6 +74,13 @@ public class InformationActivity extends AppCompatActivity {
             alertCalendar[i].set(Calendar.MILLISECOND, 0);
 
             Log.d("11Feb", "alertCalendat[" + i + "] = " + alertCalendar[i].getTime());
+
+            Intent objIntent = new Intent(getBaseContext(), AlarmReceiver.class);
+            PendingIntent objPendingIntent = PendingIntent.getBroadcast(getBaseContext(), 1, objIntent, 0);
+            AlarmManager objAlarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+            objAlarmManager.set(AlarmManager.RTC_WAKEUP,
+                    alertCalendar[i].getTimeInMillis(),
+                    objPendingIntent );
 
         }   //for
 
