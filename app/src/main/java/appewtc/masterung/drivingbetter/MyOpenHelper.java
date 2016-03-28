@@ -44,6 +44,11 @@ public class MyOpenHelper extends SQLiteOpenHelper{
             "Lat text, " +
             "Lng text);";
 
+    public static final String create_check = "create table checkTABLE (" +
+            "Date text, " +
+            "Lat text, " +
+            "Lng text);";
+
     public MyOpenHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }   // Constructor
@@ -54,6 +59,7 @@ public class MyOpenHelper extends SQLiteOpenHelper{
         db.execSQL(CREATE_EMER);
         db.execSQL(CREATE_FIX);
         db.execSQL(CREATE_LOGIN);
+        db.execSQL(create_check);
     }
 
     @Override
