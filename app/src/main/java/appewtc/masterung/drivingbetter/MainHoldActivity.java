@@ -27,7 +27,8 @@ public class MainHoldActivity extends AppCompatActivity {
     //Explicit
     private String idString;
     private int timesAnInt = 0;
-    private double distantADouble, latADouble, lngADouble;
+    private double distantADouble;
+    private double[] latDoubles, lngDoubles;
 
 
     @Override
@@ -38,6 +39,12 @@ public class MainHoldActivity extends AppCompatActivity {
         //Receive from Login
         idString = getIntent().getStringExtra("id");
         Log.d("car", "idString = " + idString);
+
+        //Setup Start
+        latDoubles = new double[2];
+        lngDoubles = new double[2];
+        latDoubles[0] = 13.6770983;
+        lngDoubles[0] = 100.6159983;
 
 
         //Calculate Distance
@@ -117,6 +124,13 @@ public class MainHoldActivity extends AppCompatActivity {
             for (int i = 0; i < jsonArray.length(); i++) {
 
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
+                latDoubles[1] = Double.parseDouble(jsonObject.getString("Lat"));
+                lngDoubles[1] = Double.parseDouble(jsonObject.getString("Lng"));
+
+                distantADouble = distantADouble + distance(latDoubles[0], lngDoubles[0],
+                        latDoubles[1], lngDoubles[1]);
+
+                Log.d("28March", "Dis ==>" + distantADouble);
 
 
             }   // for
