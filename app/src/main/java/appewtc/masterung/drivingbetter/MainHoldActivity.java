@@ -3,12 +3,18 @@ package appewtc.masterung.drivingbetter;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
+
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.Response;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -27,8 +33,9 @@ public class MainHoldActivity extends AppCompatActivity {
     //Explicit
     private String idString;
     private int timesAnInt = 0;
-    private double distantADouble;
+    private double distantADouble, mySumADouble = 0;
     private double[] latDoubles, lngDoubles;
+
 
 
     @Override
@@ -48,10 +55,83 @@ public class MainHoldActivity extends AppCompatActivity {
 
 
         //Calculate Distance
-        calculateDistance();
+        //calculateDistance();
+
+        calculateDistanceLast();
 
 
     }   // Main Method
+
+    public class MyConnected extends AsyncTask<Void, Void, String> {
+
+        @Override
+        protected String doInBackground(Void... voids) {
+
+            try {
+
+                OkHttpClient okHttpClient = new OkHttpClient();
+                Request.Builder builder = new Request.Builder();
+                Request request = builder.url("http://swiftcodingthai.com/car/php_get_check.php").build();
+                Response response = okHttpClient.newCall(request).execute();
+                return response.body().string();
+
+            } catch (Exception e) {
+                return null;
+            }   // try
+
+        }   // doInBack
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+
+            Log.d("7April", "s ==> " + s);
+
+            try {
+
+                JSONArray jsonArray = new JSONArray(s);
+                JSONObject jsonObject = jsonArray.getJSONObject(0);
+                double douLat = Double.parseDouble(jsonObject.getString("Lat"));
+                double douLng = Double.parseDouble(jsonObject.getString("Lng"));
+
+                mySumDistance(distance(latDoubles[0], lngDoubles[0], douLat, douLng));
+
+                latDoubles[0] = douLat;
+                lngDoubles[0] = douLng;
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }   // try
+
+        }   // onPost
+    }   // MyConnected Class
+
+    private void mySumDistance(double distance) {
+
+        mySumADouble = mySumADouble + distance;
+        Log.d("8April", "mySum ==> " + mySumADouble);
+
+        if (mySumADouble > 2000) {
+            Toast.makeText(this, "เกินแล้วเว้ยเห้ย", Toast.LENGTH_SHORT).show();
+        }
+
+
+    }   // mySum
+
+    private void calculateDistanceLast() {
+
+        MyConnected myConnected = new MyConnected();
+        myConnected.execute();
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                calculateDistanceLast();
+            }
+        }, 3000);
+
+    }   // cal
 
 
     //นี่คือ เมทอด ที่หาระยะ ระหว่างจุด
