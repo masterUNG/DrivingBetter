@@ -127,8 +127,13 @@ public class MainHoldActivity extends AppCompatActivity {
                 latDoubles[1] = Double.parseDouble(jsonObject.getString("Lat"));
                 lngDoubles[1] = Double.parseDouble(jsonObject.getString("Lng"));
 
+                //จะได้ Lat, Lng
+
                 distantADouble = distantADouble + distance(latDoubles[0], lngDoubles[0],
                         latDoubles[1], lngDoubles[1]);
+
+                latDoubles[0] = latDoubles[1];
+                lngDoubles[0] = lngDoubles[1];
 
                 Log.d("28March", "Dis ==>" + distantADouble);
 
