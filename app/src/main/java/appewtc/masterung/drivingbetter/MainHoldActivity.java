@@ -1,13 +1,18 @@
 package appewtc.masterung.drivingbetter;
 
 import android.app.AlertDialog;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.support.v7.app.NotificationCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -112,11 +117,32 @@ public class MainHoldActivity extends AppCompatActivity {
         Log.d("8April", "mySum ==> " + mySumADouble);
 
         if (mySumADouble > 2000) {
+            myNotification();
             Toast.makeText(this, "เกินแล้วเว้ยเห้ย", Toast.LENGTH_SHORT).show();
         }
 
 
     }   // mySum
+
+    private void myNotification() {
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+        builder.setSmallIcon(R.drawable.real48);
+        builder.setTicker("Driving Better");
+        builder.setWhen(System.currentTimeMillis());
+        builder.setContentTitle("ระยะเกิน");
+        builder.setContentText("ถึงเวลา แว้ววววว");
+        builder.setAutoCancel(false);
+
+
+        Uri soundUri = RingtoneManager.getDefaultUri(Notification.DEFAULT_SOUND);
+        builder.setSound(soundUri);
+
+        android.app.Notification notification = builder.build();
+        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        notificationManager.notify(1000, notification);
+
+    }   // myNoti
 
     private void calculateDistanceLast() {
 

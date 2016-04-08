@@ -86,7 +86,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void clickLogin(View view) {
 
-        idCardString = idCardEditText.getText().toString().trim() + " " + provinceString;
+        idCardString = idCardEditText.getText().toString().trim() + "/" + provinceString;
         passwordString = passwordEditText.getText().toString().trim();
 
         Log.d("car", "idCardString = " + idCardString);
